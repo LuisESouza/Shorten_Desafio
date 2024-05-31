@@ -86,6 +86,6 @@ button.copied {
     background-color: #3A3053;
 }
 button.copied:hover {
-    opacity: default;
+    opacity: 1;
 }
 </style>

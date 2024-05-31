@@ -1,40 +1,36 @@
 <script setup>
-import { ref } from 'vue';
-import { defineEmits } from 'vue';
+    import { ref } from 'vue';
+    import { defineEmits } from 'vue';
+    import axios from 'axios';
 
-const input_url = ref('');
-const emit = defineEmits(['link-shorted']);
+    const input_url = ref('');
+    const emit = defineEmits(['link-shorted']);
 
-const submit = async () => {
-    if (!input_url.value) {
-        alert('Por favor, insira uma URL válida.');
-        return;
-    }
-
-    try {
-        const response = await fetch('http://localhost:3001/shorten-url', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ url: input_url.value }),
-        });
-
-        const result = await response.json();
-        
-        if(result.url != null){
-            emit('link-shorted', { shortened: result.url, original: input_url.value });
-        }else{
-            alert("URL Invalid");
+    const submit = async () => {
+        if (!input_url.value) {
+            alert('Por favor, insira uma URL válida.');
+            return;
         }
 
-        input_url.value = "";
-    } catch (error) {
-        console.error(error);
-        alert('Ocorreu um erro ao encurtar a URL.');
-    }
-}
+        try {
+            const response = await axios.post('http://localhost:3001/shorten-url', {
+                url: input_url.value,
+            });
 
+            const result = await response.data;
+            
+            if(result.url != null){
+                emit('link-shorted', { shortened: result.url, original: input_url.value });
+            }else{
+                alert("URL Invalid");
+            }
+
+            input_url.value = "";
+        } catch (error) {
+            console.error(error);
+            alert('Ocorreu um erro ao encurtar a URL.');
+        }
+    }
 </script>
 
 <template>
