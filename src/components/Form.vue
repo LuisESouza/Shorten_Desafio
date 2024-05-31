@@ -1,0 +1,94 @@
+<script setup>
+import { ref } from 'vue';
+import { defineEmits } from 'vue';
+
+const input_url = ref('');
+const emit = defineEmits(['link-shorted']);
+
+const submit = async () => {
+    if (!input_url.value) {
+        alert('Por favor, insira uma URL válida.');
+        return;
+    }
+
+    try {
+        const response = await fetch('http://localhost:3001/shorten-url', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ url: input_url.value }),
+        });
+
+        const result = await response.json();
+        
+        if(result.url != null){
+            emit('link-shorted', { shortened: result.url, original: input_url.value });
+        }else{
+            alert("URL Invalid");
+        }
+
+        input_url.value = "";
+    } catch (error) {
+        console.error(error);
+        alert('Ocorreu um erro ao encurtar a URL.');
+    }
+}
+
+</script>
+
+<template>
+    <div class="form-container">
+        <form @submit.prevent="submit">
+            <input type="text" id="input_url" placeholder="Shorten a link here..." v-model="input_url">
+            <button>Shorten It!</button>
+        </form>
+    </div>
+</template>
+
+<style scoped>
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    form {
+        display: flex;
+        width: 74%;
+        position: absolute;
+        margin-bottom: 40px;
+
+        background-color: #3A3053;
+        background-image: url('@/assets/images/bg-shorten-desktop.svg');
+        padding: 35px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+        flex: 1;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        margin-right: 10px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        color: white;
+        border: none;
+        background-color: #2acfcf;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: opacity 0.3s, box-shadow 0.3s;
+    }
+
+    button:hover {
+        background-color: #5ee3e9 ;
+    }
+</style>
