@@ -33,16 +33,20 @@ function copyToClipboard(link, index) {
 
 <style scoped>
 .links-container {
-    overflow: auto;
+    overflow: hidden;
     height: 250px;
     margin: auto;
     width: 80%;
 }
 
+.links-container:hover {
+    overflow: auto;
+}
+
 .links {
     justify-content: space-between;
     display: flex;
-    margin-top: 25px;
+    margin-top: 35px;
     height: 40px;
     align-items: center;
     border-radius: 12px;
@@ -72,8 +76,8 @@ function copyToClipboard(link, index) {
 button {
     border: none;
     border-radius: 6px;
-    background-color: #26baba;
-    color: white;
+    background-color: var(--bg-color-btn);
+    color: var(--color-btn);
     padding: 6px 22px;
     transition: background-color 0.3s;
     cursor: pointer;

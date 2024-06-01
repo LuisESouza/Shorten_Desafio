@@ -20,14 +20,6 @@
 </template>
 
 <style scoped>
-    section{
-        background-color: white;
-        padding-left: 130px;
-        padding-right: 130px;
-    }
-    img {
-        width: 100%;
-    }
 
     .home-container {
         display: flex;
@@ -43,17 +35,18 @@
         margin-right: 0px;
     }
 
-    p {
-        width: 80%;
-        margin: 20px 0;
-        font-size: 20px;
+    .image-container {
+        flex: 1;
     }
 
-    h1 {
-        color: #34313C;
-        font-weight: 900;
-        font-size: 3.5em;
-        margin: 0;
+    .upside{
+        background-color: white;
+        padding-left: 130px;
+        padding-right: 130px;
+    }
+
+    img {
+        width: 100%;
     }
 
     button {
@@ -71,7 +64,18 @@
         opacity: 0.6;
     }
 
-    .image-container {
-        flex: 1;
+    p {
+        color: var( --color-p);
+        width: 80%;
+        margin: 20px 0;
+        font-size: var(--font-size-p);
     }
+
+    h1 {
+        color: #34313C;
+        font-weight: 900;
+        font-size: var(--font-size-h1);
+        margin: 0;
+    }
+
 </style>

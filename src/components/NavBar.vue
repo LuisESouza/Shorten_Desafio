@@ -40,7 +40,7 @@
     a{ 
         text-decoration: none;
         font-weight: 700;
-        color: #96959B;
+        color: var(--color-p);
         font-size: 17px;
     }
 
@@ -63,8 +63,8 @@
     }
 
     .btn-signup{
-        color: white;
-        background-color: #2BD0D1;
+        color: var(--color-btn);
+        background-color: var(--bg-color-btn);
     }
 
     .btn-signup:hover{

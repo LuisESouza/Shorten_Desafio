@@ -56,7 +56,7 @@
         position: absolute;
         margin-bottom: 40px;
 
-        background-color: #3A3053;
+        background-color: var(--bg-color-form);
         background-image: url('@/assets/images/bg-shorten-desktop.svg');
         padding: 35px;
         border-radius: 10px;
@@ -76,15 +76,15 @@
     button {
         padding: 10px 20px;
         font-size: 16px;
-        color: white;
+        color: var(--color-btn);
         border: none;
-        background-color: #2acfcf;
+        background-color: var(--bg-color-btn);
         border-radius: 5px;
         cursor: pointer;
         transition: opacity 0.3s, box-shadow 0.3s;
     }
 
     button:hover {
-        background-color: #5ee3e9 ;
+        background-color: var(--bg-color-btn) ;
     }
 </style>

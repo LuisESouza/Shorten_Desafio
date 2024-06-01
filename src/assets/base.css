@@ -1,0 +1,26 @@
+/* Colors */
+:root {
+    --bg-color-btn: #2acfcf;
+    --bg-color-boost: #3A3053;
+    --bg-color-footer: #34313C;
+    --bg-color-form: #3A3053;
+
+
+    --color-btn: #ffffff;
+    --color-title: #34313C;
+    --color-p: #9E9DA6;
+    --color-hover-p: #2BD0D1;
+}
+
+/* Font size */
+:root {
+    --font-size-p: 1.1rem;
+    --font-size-h1: 3.5rem;
+    --font-size-h2: 2rem;
+    --font-size-boost-h2: 1.1rem;
+}
+
+/* Font family */
+body {
+    font-family: 'Roboto', sans-serif;
+}
