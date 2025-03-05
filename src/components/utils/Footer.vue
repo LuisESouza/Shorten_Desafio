@@ -5,7 +5,7 @@
         <div class="container">
 
             <div class="logo">
-                <img src="../assets/images/logo-white.svg" alt="Logo">
+                <img src="@/assets/images/logo-white.svg" alt="Logo">
             </div>
 
             <div class="container-links">
@@ -33,10 +33,10 @@
             </div>
             
             <div class="social">
-                <a href="" class="link-social"><img src="../assets/images/icon-twitter.svg" alt="Twitter"></a>
-                <a href="" class="link-social"><img src="../assets/images/icon-facebook.svg" alt="Facebook"></a>
-                <a href="" class="link-social"><img src="../assets/images/icon-pinterest.svg" alt="Pinterest"></a>
-                <a href="" class="link-social"><img src="../assets/images/icon-instagram.svg" alt="Instagram"></a>
+                <a href="" class="link-social"><img src="@/assets/images/icon-twitter.svg" alt="Twitter"></a>
+                <a href="" class="link-social"><img src="@/assets/images/icon-facebook.svg" alt="Facebook"></a>
+                <a href="" class="link-social"><img src="@/assets/images/icon-pinterest.svg" alt="Pinterest"></a>
+                <a href="" class="link-social"><img src="@/assets/images/icon-instagram.svg" alt="Instagram"></a>
             </div>
 
         </div>

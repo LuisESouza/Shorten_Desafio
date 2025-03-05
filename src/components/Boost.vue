@@ -8,6 +8,10 @@
 </template>
 
 <style scoped>
+    h2{
+        color: white;
+    }
+
     .Boost {
         background-image: url('@/assets/images/bg-boost-desktop.svg');
         background-color: var(--bg-color-boost);

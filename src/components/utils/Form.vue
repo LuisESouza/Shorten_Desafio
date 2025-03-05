@@ -1,36 +1,26 @@
 <script setup>
-    import { ref } from 'vue';
-    import { defineEmits } from 'vue';
-    import axios from 'axios';
+import { apiPost } from '../../api/index.js';
+import { defineEmits, ref } from 'vue';
 
-    const input_url = ref('');
-    const emit = defineEmits(['link-shorted']);
+const emit = defineEmits(['link-shorted']);
+const input_url = ref('');
 
-    const submit = async () => {
-        if (!input_url.value) {
-            alert('Por favor, insira uma URL válida.');
-            return;
-        }
-
-        try {
-            const response = await axios.post('http://localhost:3001/shorten-url', {
-                url: input_url.value,
-            });
-
-            const result = await response.data;
-            
-            if(result.url != null){
-                emit('link-shorted', { shortened: result.url, original: input_url.value });
-            }else{
-                alert("URL Invalid");
-            }
-
-            input_url.value = "";
-        } catch (error) {
-            console.error(error);
-            alert('Ocorreu um erro ao encurtar a URL.');
-        }
+const submit = async () => {
+    if (!input_url.value) {
+        alert('Por favor, insira uma URL válida.');
+        return;
     }
+        const response = await apiPost('http://localhost:4004/api/shorten-link', {
+            url: input_url.value,
+        });
+        // Emitir o evento com o novo link
+        emit('link-shorted', {
+            original: input_url.value,
+            shortened: response.shortenedUrl
+        });
+
+        input_url.value = "";
+};
 </script>
 
 <template>
